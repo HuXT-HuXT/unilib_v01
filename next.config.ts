@@ -11,6 +11,14 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "m.media-amazon.com",
       },
+      {
+        protocol: "https",
+        hostname: "disk.yandex.ru",
+      },
+      {
+        protocol: "https",
+        hostname: "drive.google.com",
+      },
     ]
   }
 };
