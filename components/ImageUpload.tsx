@@ -54,11 +54,18 @@ const ImageUpload = ({onFileChange}: {onFileChange: (filePath: string) => void})
   };
 
   return (
-    // @ts-ignore
-    <ImageKitProvider publicKey={publicKey} urlEndpoint={urlEndpoint} authenticator={authenticator} onError={onError} onSuccess={onSuccess} fileName='test-upload.png' >
+    <ImageKitProvider
+      publicKey={publicKey}
+      urlEndpoint={urlEndpoint}
+      authenticator={authenticator}
+      onError={onError}
+      onSuccess={onSuccess}
+      fileName='test-upload.png'
+    >
       <IKUpload className="hidden" ref={IKUploadRef}/>
       <button className="upload-btn" onClick={(e) => {
         e.preventDefault()
+        console.log('')
 
         if(IKUploadRef.current) {
           // @ts-ignore
@@ -69,12 +76,13 @@ const ImageUpload = ({onFileChange}: {onFileChange: (filePath: string) => void})
         <p className="text-base text-light-100">Upload a File</p>
         {file && <p className="upload-filename">{file.filePath}</p>}
       </button>
+
       {file && (
         <IKImage
           alt={file.filePath}
           path={file.filePath}
           width={500}
-          height={500}
+          height={300}
         />
       )}
     </ImageKitProvider>
